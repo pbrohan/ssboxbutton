@@ -18,6 +18,7 @@ function setbox(element,i){
 function nextbox(element){
   //Take in table element from page
   //cycle through select boxes.
+  console.log("ding");
   boxes = element.find("input");
   set = 0;
   boxes.each(function () {
@@ -39,8 +40,15 @@ function nextbox(element){
   	}
 });
 }
+ var loc = window.location.pathname.split("/");
+ ploc = loc[loc.length - 1];
+ if (ploc ==  "right_teacher_test_ability_student.jsp"){
+  tdpath = "#full > form > table > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
+ } else if (ploc == "right_teacher_student_ability.jsp") {
+  tdpath = "#full > form > table:nth-child(35) > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
+ }
 
- $("#full > form > table > tbody > tr > td > table > tbody > tr > td:nth-child(2)").each(function () {
+ $(tdpath).each(function () {
  	var text = $(this);
  	text.click(function() { nextbox(text.closest("table")) });
  });
