@@ -40,15 +40,35 @@ function nextbox(element){
   	}
 });
 }
+
+function rubricpage(tdpath){
+  //Run nextbox on rubric texts found at given path
+ $(tdpath).each(function () {
+  var text = $(this);
+  text.click(function() { nextbox(text.closest("table")) });
+ });
+}
+
+
  var loc = window.location.pathname.split("/");
  ploc = loc[loc.length - 1];
  if (ploc ==  "right_teacher_test_ability_student.jsp"){
+  //If on test rubric page, add functionality to boxes
   tdpath = "#full > form > table > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
+  rubricpage(tdpath);
  } else if (ploc == "right_teacher_student_ability.jsp") {
+  //If on student rubric page, add functionality to boxes
   tdpath = "#full > form > table:nth-child(35) > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
- }
+  rubricpage(tdpath);
+ } else if (ploc == "right_teacher_test_show_result_multi_update.jsp"){
+  //If on 'handle knowledge requirements' page, add submit functionality to boxes
+  //to stop it being removed when Google Translate changes the hierarchy.
+  var studentform = document.querySelector("#full > table:nth-child(11) > tbody > tr > form");
+  $("#full > center > input:nth-child(1)").each(function(){
+    var sbutton = $(this);
+    sbutton.click(function() {studentform.submit();})
+  })
 
- $(tdpath).each(function () {
- 	var text = $(this);
- 	text.click(function() { nextbox(text.closest("table")) });
- });
+
+  
+ }

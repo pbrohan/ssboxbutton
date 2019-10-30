@@ -1,12 +1,13 @@
 {
 	"manifest_version": 2,
 	"name": "ssboxbutton",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"content_scripts": [
   {
     "matches": [
       "https://*.schoolsoft.se/*/right_teacher_test_ability_student.jsp*",
-      "https://*.schoolsoft.se/*/right_teacher_student_ability.jsp*"
+      "https://*.schoolsoft.se/*/right_teacher_student_ability.jsp*",
+      "https://*.schoolsoft.se/*/right_teacher_test_show_result_multi_update.jsp*"
     ],
     "js": ["jquery-2.2.4.min.js","ssboxbutton.js"]
   }
