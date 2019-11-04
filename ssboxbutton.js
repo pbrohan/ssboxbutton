@@ -18,7 +18,6 @@ function setbox(element,i){
 function nextbox(element){
   //Take in table element from page
   //cycle through select boxes.
-  console.log("ding");
   boxes = element.find("input");
   set = 0;
   boxes.each(function () {
