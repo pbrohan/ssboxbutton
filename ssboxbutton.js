@@ -57,8 +57,14 @@ function rubricpage(tdpath){
   rubricpage(tdpath);
  } else if (ploc == "right_teacher_student_ability.jsp") {
   //If on student rubric page, add functionality to boxes
+    //If "Only ability matrix" is selected
+    if ((window.location.search.match(/(?<=summary=)\d/)[0]) === "1"){
+  tdpath = "#full > form > table:nth-child(33) > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
+} else {
   tdpath = "#full > form > table:nth-child(35) > tbody > tr > td > table > tbody > tr > td:nth-child(2)";
+}
   rubricpage(tdpath);
+
  } else if (ploc == "right_teacher_test_show_result_multi_update.jsp"){
   //If on 'handle knowledge requirements' page, add submit functionality to boxes
   //to stop it being removed when Google Translate changes the hierarchy.
