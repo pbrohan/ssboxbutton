@@ -65,6 +65,10 @@ function rubricpage(tdpath){
 }
   rubricpage(tdpath);
 
+  //Some pages have more options which get in the way. Write options at some point to fix this.
+  tdpath = "#full > form > table:nth-child(40) > tbody > tr > td > table > tbody > tr > td:nth-child(2)"  
+  rubricpage(tdpath);
+
  } else if (ploc == "right_teacher_test_show_result_multi_update.jsp"){
   //If on 'handle knowledge requirements' page, add submit functionality to boxes
   //to stop it being removed when Google Translate changes the hierarchy.
